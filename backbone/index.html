@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Devices Manager GUI</title>
+	</head>
+	<body>
+		<h1>Devices Manager GUI</h1>
+		
+		<form id="add-device">
+			<label> ID: </label><input id="device-id" name="device-id" type="text"/>
+			<label> Name: </label><input id="device-name" name="device-name" type="text"/>
+			<label> IP: </label><input id="device-ip" name="device-ip" type="text"/>
+			<label> Description: </label><input id="device-description" name="device-description" type="text"/>
+			<button>Add</button>
+		</form>
+		<hr/>
+		
+		<script src="jquery.min.js"></script>
+		<script src="underscore-min.js"></script>
+		<script src="backbone-min.js"></script>
+		<script>
+			(function($){
+				var Device = Backbone.Model.extend({
+					defaults: function(){
+						return {
+							id: '',
+							ip: '',
+							name: '',
+							description: ''
+						}
+					}
+				});
+				var DeviceList = Backbone.Collection.extend({
+					model: Device
+				});
+
+				var devices = new DeviceList();
+				
+				$(document).ready(function(){
+					$('#add-device').submit(function(ev){
+						var device = new Device({id:$('#device-id').val(),name:$('#device-name').val(),ip:$('#device-ip').val(),description:$('#device-description').val()});
+						devices.add(device);
+						//var device2 = new Device({id:'RT-2',name:'Router 2',ip:'192.168.1.12',description:'second router'});
+						//var device3 = new Device({id:'RT-3',name:'Router 3',ip:'192.168.1.13',description:'third router'});
+						//console.log(device.get('description'));
+						console.log(devices.toJSON());
+
+						return false;	
+					});
+				});
+				
+				
+			})(jQuery);
+		</script>
+	</body>
+</html>
