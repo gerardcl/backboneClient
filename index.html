@@ -1,102 +1,81 @@
 <!DOCTYPE html>
 <html>
-        <head>
-                <title>Devices</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link href = "css/bootstrap.min.css" rel = "stylesheet" media="screen">
-                <link href = "css/styles.css" rel = "stylesheet" media="screen">
-        </head>
-        <body>
-                <div class = "navbar navbar-inverse navbar-fixed-top">
-                        <div class = "container">  
-                                <a href = "#" class = "navbar-brand">Devices manager</a>
-                                <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
-                                        <span class = "icon-bar"></span>
-                                        <span class = "icon-bar"></span>
-                                        <span class = "icon-bar"></span>
-                                </button>
-                                <div class = "collapse navbar-collapse navHeaderCollapse">                        
-                                        <ul class = "nav navbar-nav navbar-right">
-                                                <li class = "active"><a href = "#">Home</a></li>
-                                                <li class = "dropdown">
-                                                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Devices <b class = "caret"></b></a>
-                                                        <ul class = "dropdown-menu">
-                                                                <li><a href = "#">Controller</a></li>
-                                                                <li><a href = "#">Switch</a></li>
-                                                                <li><a href = "#">Nodes</a></li>
-                                                                <li><a href = "#">Links</a></li>
-                                                        </ul>
-                                                </li>
-                                                <li><a href = "#">About</a></li>
-                                        </ul>
-                                </div>   
-                        </div>
-                </div>
+	<head>
+        <title>Devices</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href = "css/bootstrap.min.css" rel = "stylesheet" media="screen">
+        <link href = "css/styles.css" rel = "stylesheet" media="screen">
+	</head>
+	<body>
+
+	   <!-- TOP BAR-->
+	    <div class = "navbar navbar-inverse navbar-fixed-top">
+	            <div class = "container">  
+	                    <a href = "#" class = "navbar-brand">Devices manager</a>
+	                    <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+	                            <span class = "icon-bar"></span>
+	                            <span class = "icon-bar"></span>
+	                            <span class = "icon-bar"></span>
+	                    </button>
+	                    <div class = "collapse navbar-collapse navHeaderCollapse">                        
+	                            <ul class = "nav navbar-nav navbar-right">
+	                                    <li class = "active"><a href = "#">Home</a></li>
+	                                    <li class = "dropdown">
+	                                            <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Devices <b class = "caret"></b></a>
+	                                            <ul class = "dropdown-menu">
+	                                                    <li><a href = "#">Controller</a></li>
+	                                                    <li><a href = "#">Switch</a></li>
+	                                                    <li><a href = "#">Nodes</a></li>
+	                                                    <li><a href = "#">Links</a></li>
+	                                            </ul>
+	                                    </li>
+	                                    <li><a href = "#">About</a></li>
+	                            </ul>
+	                    </div>   
+	            </div>
+	    </div><!-- END TOP BAR-->
+
 <div class="container">
-<section id="secDevices" class="wrapper"> 
-        <div class="col-md-8">
-
-        		<div class="row">
-            <div class="col-6 col-sm-6 col-lg-4">
-              <h2>Device 1</h2>
-              <p>Name: whatever</p> <p>IP: 127.0.0.1</p> <p>Description: this is the first device bla bla bla </p>
-              <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="col-6 col-sm-6 col-lg-4">
-              <h2>Device 2</h2>
-              <p>Name: whatever</p> <p>IP: 127.0.0.1</p> <p>Description: this is the first device bla bla bla</p>
-              <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="col-6 col-sm-6 col-lg-4">
-              <h2>Device 3</h2>
-              <p>Name: whatever</p> <p>IP: 127.0.0.1</p> <p>Description: this is the first device bla bla bla</p>
-              <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div class="col-6 col-sm-6 col-lg-4">
-              <h2>Device 4</h2>
-              <p>Name: whatever</p> <p>IP: 127.0.0.1</p> <p>Description: this is the first device bla bla bla</p>
-              <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-        
-        </div>
-</section>
-<section class="wrapper">         	
-        <div class="col-md-4">
-        
-        	<header><h1>Add devices</h1></header>
-			
-			<form action="" id="addDevice">
-
-			  <label>Name:</label>
-			  <input type="text" id="name" name="name" placeholder="Router4" required>
-
-			  <label>IP:</label>
-			  <input type="text" id="ip" name="ip" placeholder="192.168.1.10" required>
-
-			  <label>Description:</label>
-			  <input type="textarea" id="description" name="description" placeholder="Device description" required>
-
-			  <input type="submit" value="Add device" onclick=""/> 
-			</form>
-		</div>
-		
-</section>
+		<section class="col-md-8">
+			<br>
+			<header><h1>All devices</h1></header>
+			<div class="row">
+				<div id="devices-container"></div><!--/span-->
+			</div>
+		</section>
+	    
+	    <section class="col-md-4">
+	    	<br>
+	    	<header><h1>Add devices</h1></header>
+		    <!-- ADD DEVICE FORM -->
+			<form id="new-device" class="wrapper">
+				<label>Device name:</label><input id="device-name" name="device-name" type="text" />
+				<label>IP:</label><input id="ip-update" name="ip-update" type="text" />
+				<label>Description:</label><input id="description-update" name="description-update" />
+				<input type="submit" value="Add device" onclick=""/> 
+			</form><!-- END ADD DEVICE FORM -->		
+		</section>
 
 
-
-                <div class = "navbar navbar-inverse navbar-fixed-bottom">
-                	<div class = "container">
-                		<p class = "navbar-text">DXAT 2013</p>
-                	</div>
-                </div>
-</div>
                 <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
                 <script src = "js/bootstrap.js"></script>
-                <script src = "backboneCode.js"></script>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 				<script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
 				<script src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
-               
-        </body>
+				<script src="js/backboneCode.js"></script>
+
+		<!-- Templates -->
+		<script type="text/template" id="device-template">	
+		<div class="col-6 col-sm-6 col-lg-4">  
+		  	<h2>Name: <%= name %></h2>
+		  	<p>IP: <%= ip %></p>
+		  	<p>Description: <%= description %></p>
+			<a href="#" class="edit">[edit]</a>
+			<a href="#" class="delete">[delete]</a>
+		</div>	
+		</script>
+
+
+
+	</body>
 </html>
