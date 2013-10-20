@@ -11,7 +11,7 @@
 	   <!-- TOP BAR-->
 	    <div class = "navbar navbar-inverse navbar-fixed-top">
 	            <div class = "container">  
-	                    <a href = "#" class = "navbar-brand">Devices manager</a>
+	                    <a href = "#" class = "navbar-brand">Devices Manager beta</a>
 	                    <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
 	                            <span class = "icon-bar"></span>
 	                            <span class = "icon-bar"></span>
@@ -37,22 +37,22 @@
 
 <div class="container">
 		<section class="col-md-8">
-			<br>
-			<header><h1>All devices</h1></header>
+			<br><br>
+			<header><h1>Devices</h1></header>
 			<div class="row">
 				<div id="devices-container"></div><!--/span-->
 			</div>
 		</section>
 	    
 	    <section class="col-md-4">
-	    	<br>
-	    	<header><h1>Add devices</h1></header>
+	    	<br><br>
+	    	<header><h1>Add device</h1></header>
 		    <!-- ADD DEVICE FORM -->
-			<form id="new-device" class="wrapper">
+			<form id="add-device" class="wrapper">
 				<label>Device name:</label><input id="device-name" name="device-name" type="text" />
-				<label>IP:</label><input id="ip-update" name="ip-update" type="text" />
-				<label>Description:</label><input id="description-update" name="description-update" />
-				<input type="submit" value="Add device" onclick=""/> 
+				<label>IP:</label><input id="device-ip" name="device-ip" type="text" />
+				<label>Description:</label><input id="device-description" name="device-description" />
+				<input type="submit" value="Add" onclick=""/> 
 			</form><!-- END ADD DEVICE FORM -->		
 		</section>
 
@@ -62,15 +62,16 @@
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 				<script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
 				<script src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
-				<script src="js/backboneCode.js"></script>
+				<script src="js/client.js"></script>
 
 		<!-- Templates -->
 		<script type="text/template" id="device-template">	
 		<div class="col-6 col-sm-6 col-lg-4">  
-		  	<h2>Name: <%= name %></h2>
-		  	<p>IP: <%= ip %></p>
-		  	<p>Description: <%= description %></p>
-			<a href="#" class="edit">[edit]</a>
+		  	<h2>Name: <span class="name"><%= name %></span></h2>
+			<p>Id: <span class="id"><%= id %></span></p>
+			<p>IP: <span class="ip"><%= ip %></span></p>
+		  	<p>Description: <span class="description"><%= description %></span></p>
+			<a href="#" class="update">[update]</a>
 			<a href="#" class="delete">[delete]</a>
 		</div>	
 		</script>
