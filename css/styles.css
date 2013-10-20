@@ -80,3 +80,23 @@ input[type=submit] {
   padding:10px;
   margin-bottom:60px;
 }
+
+.input {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border:1px solid #ccc;
+  font-size:15px;
+  width:250px;
+  overflow:auto;
+  resize:none;
+
+
+  margin-bottom:15px;
+  margin-top:5px;
+  outline: none;
+
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  -o-border-radius:5px;
+  -ms-border-radius:5px;
+  border-radius:5px;
+}

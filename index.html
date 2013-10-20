@@ -49,10 +49,10 @@
 	    	<header><h1>Add device</h1></header>
 		    <!-- ADD DEVICE FORM -->
 			<form id="add-device" class="wrapper">
-				<label>Device name:</label><input id="device-name" name="device-name" type="text" />
-				<label>IP:</label><input id="device-ip" name="device-ip" type="text" />
-				<label>Description:</label><input id="device-description" name="device-description" />
-				<input type="submit" value="Add" onclick=""/> 
+				<label>Device name:</label><input id="device-name" name="device-name" type="text" MAXLENGTH ="22" placeholder="Device name" title="Device name required" required/>
+				<label>IP:</label><input id="device-ip" name="device-ip" maxlength="15" placeholder="192.168.1.1" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" title="123.123.123.123 format" required/>
+				<label>Description:</label><br><TEXTAREA class="input" id="device-description" name="device-description" placeholder="Device description"></TEXTAREA>
+				<input type="submit" value="Add" onclick="check_ip_format"/> 
 			</form><!-- END ADD DEVICE FORM -->		
 		</section>
 
@@ -74,8 +74,7 @@
 			<a href="#" class="update">[update]</a>
 			<a href="#" class="delete">[delete]</a>
 		</div>	
-		</script>
-
+		
 
 
 	</body>
