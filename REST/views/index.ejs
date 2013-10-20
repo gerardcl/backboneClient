@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>Devices</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href = "stylesheets/bootstrap.min.css" rel = "stylesheet" media="screen">
+        <link href = "stylesheets/styles.css" rel = "stylesheet" media="screen">
+	</head>
+	<body>
+
+	   <!-- TOP BAR-->
+	    <div class = "navbar navbar-inverse navbar-fixed-top">
+	            <div class = "container">  
+	                    <a href = "#" class = "navbar-brand">Devices Manager beta</a>
+	                    <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+	                            <span class = "icon-bar"></span>
+	                            <span class = "icon-bar"></span>
+	                            <span class = "icon-bar"></span>
+	                    </button>
+	                    <div class = "collapse navbar-collapse navHeaderCollapse">                        
+	                            <ul class = "nav navbar-nav navbar-right">
+	                                    <li class = "active"><a href = "#">Home</a></li>
+	                                    <li class = "dropdown">
+	                                            <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Devices <b class = "caret"></b></a>
+	                                            <ul class = "dropdown-menu">
+	                                                    <li><a href = "#">Controller</a></li>
+	                                                    <li><a href = "#">Switch</a></li>
+	                                                    <li><a href = "#">Nodes</a></li>
+	                                                    <li><a href = "#">Links</a></li>
+	                                            </ul>
+	                                    </li>
+	                                    <li><a href = "#">About</a></li>
+	                            </ul>
+	                    </div>   
+	            </div>
+	    </div><!-- END TOP BAR-->
+
+<div class="container">
+		<section class="col-md-8">
+			<br><br>
+			<header><h1>Devices</h1></header>
+			<div class="row">
+				<div id="devices-container"></div><!--/span-->
+			</div>
+		</section>
+	    
+	    <section class="col-md-4">
+	    	<br><br>
+	    	<header><h1>Add device</h1></header>
+		    <!-- ADD DEVICE FORM -->
+			<form id="add-device" class="wrapper">
+				<label>Device name:</label><input id="device-name" name="device-name" type="text" />
+				<label>IP:</label><input id="device-ip" name="device-ip" type="text" />
+				<label>Description:</label><input id="device-description" name="device-description" />
+				<input type="submit" value="Add" onclick=""/> 
+			</form><!-- END ADD DEVICE FORM -->		
+		</section>
+
+
+                <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+                <script src = "javascripts/bootstrap.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+				<script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+				<script src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
+				<script src="javascripts/client.js"></script>
+
+		<!-- Templates -->
+		<script type="text/template" id="device-template">	
+		<div class="col-6 col-sm-6 col-lg-4">  
+		  	<h2>Name: <span class="name">{{ name }}</span></h2>
+			<p>Id: <span class="id">{{ id }}</span></p>
+			<p>IP: <span class="ip">{{ ip }}</span></p>
+		  	<p>Description: <span class="description">{{ description }}</span></p>
+			<a href="#" class="update">[update]</a>
+			<a href="#" class="delete">[delete]</a>
+		</div>	
+		</script>
+
+
+
+	</body>
+</html>
