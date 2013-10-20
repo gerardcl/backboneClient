@@ -1,7 +1,7 @@
 (function($){
 	_.templateSettings = {
 	  interpolate: /\{\{(.+?)\}\}/g
-	};
+	};  //this is for not using jade and be based on ejs simple html code
 	
 	var Device = Backbone.Model.extend({
 		defaults: function(){
@@ -15,7 +15,8 @@
 	});
 	
 	var DevicesList = Backbone.Collection.extend({
-		model: Device
+		model: Device,
+		url: '/devices'
 	});
 	var numDevices = 0;
 	var devices = new DevicesList();
@@ -106,7 +107,10 @@
 			//var device3 = new Device({id:'RT-3',name:'Router 3',ip:'192.168.1.13',description:'third router'});
 			//console.log(device.get('description'));
 			console.log(devices.toJSON());
-
+			device.save({},{
+				succes: function(){ consol.log("successfully saved device!");},
+				error: function(){ console.log("error saving device!");}
+			});
 			return false;	
 		});
 		
