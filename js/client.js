@@ -15,7 +15,7 @@
 	});
 	var numDevices = 0;
 	var devices = new DevicesList();
-//////
+
 	var DeviceView = Backbone.View.extend({
 		model: new Device(),
 		tagName: 'div',
